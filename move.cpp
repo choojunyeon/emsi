@@ -19,11 +19,11 @@ float angleUD = 90.0;
 float angleSW = 90.0; // 새 서보모터 각도
 
 // 각도 제한
-const float MIN_LR = 60.0;   // ±30도 -> 60 ~ 120도
-const float MAX_LR = 120.0;
+const float MIN_LR = 50.0;   // ±30도 -> 60 ~ 120도
+const float MAX_LR = 130.0;
 
 const float MIN_UD = 0.0;    // ±90도 -> 0 ~ 180도
-const float MAX_UD = 180.0;
+const float MAX_UD = 120.0;
 
 const float MIN_SW = 0.0;    // 신규 모터 범위 -> 0 ~ 180도
 const float MAX_SW = 180.0;
@@ -48,13 +48,16 @@ void setup() {
 
   // 조이스틱 버튼 핀 (내부 풀업 저항)
   pinMode(JOY_SW_PIN, INPUT_PULLUP);
+
+  Serial.begin(9600);
 }
 
 void loop() {
   int xVal = analogRead(JOY_X_PIN);
   int yVal = analogRead(JOY_Y_PIN);
   int currentBtnState = digitalRead(JOY_SW_PIN);
-
+  Serial.println(yVal); //serial monitor 켜기
+  
   // -------------------------------------------------------------
   // 1. 조이스틱 아날로그 레버 동작 (1, 2번 서보모터)
   // -------------------------------------------------------------
