@@ -64,7 +64,7 @@ GRIP_DIST_MAX = 0.20
 # True로 바꾸면 거리가 커질 때 각도가 작아진다.
 LR_REVERSE = False
 UD_REVERSE = False
-GRIP_REVERSE = False
+GRIP_REVERSE = True
 
 # 모터 제어 설정
 
